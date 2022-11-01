@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bài tập hàm</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./img/JavaScript-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300;400;500;700&family=Jost:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;700&family=Oswald:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-2">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="myBtn nav-link active" id="v-pills-home-tab" data-toggle="pill"
+                        data-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                        aria-selected="true"><i class="fa-solid fa-book"></i> Bài 1</button>
+                    <button class="myBtn nav-link" id="v-pills-profile-tab" data-toggle="pill"
+                        data-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false"><i class="fa-solid fa-book"></i> Bài 2</button>
+                    <button class="myBtn nav-link" id="v-pills-messages-tab" data-toggle="pill"
+                        data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+                        aria-selected="false"><i class="fa-solid fa-book"></i> Bài 3</button>
+                    <button class="myBtn nav-link" id="v-pills-settings-tab" data-toggle="pill"
+                        data-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+                        aria-selected="false"><i class="fa-solid fa-book"></i> Bài 4</button>
+                </div>
+            </div>
+            <div class="col-10 py-5">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <h5>BÀI 1 : 🏫 QUẢN LÍ TUYỂN SINH </h5>
+
+                        <div class="box-hint mt-3  ">
+                            <h6>💡 Gợi ý</h6>
+                            <a class="ml-4 text-dark collapsed " data-toggle="collapse" href="#collapseExample"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Mở rộng để xem thêm <i class="triangle"></i>
+                            </a>
+
+                            <div class="collapse" id="collapseExample">
+                                <div class="  ml-4">
+                                    <ul class="pt-3">
+                                        <li class="mb-2">Điểm chuẩn của hội đồng các bạn tự nhập thêm. Điểm chuẩn của 3
+                                            môn thường tối đa 30đ. <br>
+                                            Nên có thể lấy các điểm chuẩn như sau: 30,25,29</li>
+                                        <li class="mb-2">Ô nhập khu vực, đối tượng có thể tạo bằng input, dropdown hoặc
+                                            radio.
+                                            Nếu không thuộc khu vực hoặc đối tượng trong danh sách thì điểm khu vực và
+                                            điểm đối tượng sẽ là 0</li>
+                                        <li class="mb-2">Nếu có 1 trong 3 môn bị điểm 0 thì lặp tức cho rớt không cần
+                                            kiểm tra tổng điểm có lớn hơn hoặc bằng điểm chuẩn hay không</li>
+                                        <li class="mb-2">
+                                            Đối với đối tượng : 1 = 2.5 điểm , 2 = 1.5 điểm , 3 = 1 điểm
+                                        </li>
+                                        <li>
+                                            Đối với khu vực : A = 2 điểm , B = 1 điểm , C = 0.5 điểm
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group d-flex justify-content-around mt-5 mr-5">
+                            <input type="number" placeholder="Điểm chuẩn" id="standardPoint" class="form-control mx-2">
+                            <select id="chooseArea" class="form-control mx-2">
+                                <option selected value="">Chọn khu vực</option>
+                                <option value="">A</option>
+                                <option value="">B</option>
+                                <option value="">C</option>
+                            </select>
+                            <select id="chooseObject" class="form-control mx-2">
+                                <option selected value="">Chọn đối tượng</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                            </select>
+                        </div>
+                        <div class="form-group d-flex justify-content-around mt-3 mr-5">
+                            <input type="number" placeholder="Điểm môn thứ 1" id="SubjectPoint1"
+                                class="form-control mx-2">
+                            <input type="number" placeholder="Điểm môn thứ 2" id="SubjectPoint2"
+                                class="form-control mx-2">
+                            <input type="number" placeholder="Điểm môn thứ 3" id="SubjectPoint3"
+                                class="form-control mx-2">
+                        </div>
+                        <button class="btn btn-success px-5 mb-3 ml-2 mt-4" onclick="calPoint()">Tính</button>
+                        <div class="alert alert-secondary ml-2 mr-5 mt-2" id="alertPoint">Kết quả : <span
+                                id="displayPoint"></span></div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">
+                        <h5>BÀI 2 : 🔋 TÍNH TIỀN ĐIỆN </h5>
+                        <div class="box-hint mt-3">
+                            <h6>💡 Gợi ý</h6>
+                            <a class="ml-4 text-dark collapsed " data-toggle="collapse" href="#collapseExample"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Mở rộng để xem thêm <i class="triangle"></i>
+                            </a>
+
+                            <div class="collapse" id="collapseExample">
+                                <ul class="ml-4 mt-3">
+                                    <li>50kW đầu có giá 50 đồng</li>
+                                    <li>50kW kế có giá 50 đồng</li>
+                                    <li>100kW kế có giá 100 đồng</li>
+                                    <li>...</li>
+                                    <li>dùng <a  target="_blank" href="https://stackoverflow.com/questions/37985642/vnd-currency-formatting">Cách định dạng tiền Việt</a></li>
+                                </ul>
+                                <img class="img-fluid  px-5 py-2" src="./img/bai2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 d-flex w-50">
+                            <input type="text" placeholder="Nhập họ tên" class="form-control mr-2" id="namePayment">
+                            <input type="number" placeholder="Nhập số kw" class="form-control ml-2" id="numberOfKw">
+                        </div>
+                        <button onclick="calElec()" class="btn btn-success mt-5">Tính tiền điện</button>
+                        <div class="alert alert-secondary   w-50 mt-4" id="alertPoint"> ==> <span id="displayElec"></span></div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab">
+                        <h5>BÀI 3 : 💰 TÍNH THUẾ THU NHẬP CÁ NHÂN</h5>
+                        <div class="box-hint mt-3">
+                            <h6>💡 Gợi ý</h6>
+                            <a class="ml-4 text-dark collapsed " data-toggle="collapse" href="#collapseExample"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Mở rộng để xem thêm <i class="triangle"></i>
+                            </a>
+                            <div class="collapse" id="collapseExample">
+                                <ul class="ml-4 mt-3">
+                                    <li>Tổng thu nhập năm các bạn tự nhập thêm. Giả sử 1 tháng thu nhập 10tr thì 1 năm sẽ là 10 x 12 = 120tr => các bạn sẽ nhập 120000000</li>
+                                    <li>Demo hiện tại đang tính % thuế theo điều kiện mà thu nhập chịu thuế rơi vào. Vd: thu nhập chịu thuế là 110tr thì tính 10% của 110tr => 110tr * 0.1</li>
+                                    <li>Do đề bài không ghi rõ yêu cầu tính thuế nên cũng có thể tính theo cách chia ra từng đoạn thuế giống bài tính tiền grab. Vd: 110tr => 60tr *0.05 + (110tr-60tr) * 0.1</li>
+                                    <li>Sử dụng input có type number thì khi nhập 120000000, có thể nhập ngắn gọn thành 120e+6</li>
+                                    <li>Đối với các con số hàng triệu có nhiều số 0, có thể viết ngắn gọn trong code như sau:
+                                        4tr => 4000000 => 4e+6</li>
+                                    <li><a href="https://thuvienphapluat.vn/tien-ich/tinh-thue-thu-nhap-ca-nhan.html" target="_blank">Tham khảo cách tính </a><span>( Lương đóng bảo hiểm = 100 đồng )</span></li>
+                                    <li>Dùng NumberFormat để số tiền hiển thị đẹp hơn: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Number</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 d-flex w-75">
+                            <input type="text" placeholder="Nhập họ tên " class="form-control mr-2" id="taxPayer">
+                            <input type="number" placeholder="Tổng thu nhập năm" class="form-control ml-2 " id="income">
+                            <input type="number" placeholder="Số người phụ thuộc" class="form-control ml-2" id="numberOfDependents">
+                        </div>
+                        <button onclick="calTax()" class="btn btn-success mt-5">Tính tiền thuế</button>
+                        <div class="alert alert-secondary   w-75 mt-4" id="alertPoint"> ==> <span id="displayTax"></span></div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab">
+                        <h5>BÀI 4 : 🕸️ TÍNH TIỀN CÁP</h5>
+                        <div class="box-hint mt-3">
+                            <h6>💡 Gợi ý</h6>
+                            <a class="ml-4 text-dark collapsed " data-toggle="collapse" href="#collapseExample"
+                                role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Mở rộng để xem thêm <i class="triangle"></i>
+                            </a>
+                            <div class="collapse" id="collapseExample">
+                                <ul class="ml-4 mt-3">
+                                    <li>Sử dụng event onchange của dropdown để xử lý ẩn hiện cho ô nhập số kết nối khi chọn loại khách hàng: <a href="https://www.w3schools.com/jsref/event_onchange.asp" target="_blank">Onchange</a></li>
+                                    <li>Đối với loại khách hàng Doanh Nghiệp, tổng 10 kết nối đầu là 75$ <br>
+                                        => đây là giá trọn gói, nếu doanh nghiệp lắp đặt số kết nối nhỏ hơn 10 thì vẫn phải đóng 75$.
+                                        <br>
+                                        Vd: 6 kết nối thì vẫn sẽ cộng 75$ vào tổng tiền. <br>
+                                        => Nếu lắp trên 10 kết nối thì kết nối thứ 11 trở đi sẽ tính 5$/kết nối.
+                                    
+                                    </li>
+                              
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 d-flex w-75">
+                            <select name="" id="mySelect" class="form-control mr-1" onchange="functionSelect()">
+                                <option value="">Chọn loại khách hàng</option>
+                                <option value="Nhà dân">Nhà dân</option>
+                                <option value="Doanh nghiệp">Doanh nghiệp</option>
+                            </select>
+                            <input type="text" placeholder="Nhập mã khách hàng" class="form-control mx-1" id="customerCode">
+                            <input type="number" placeholder="Số kênh cao cấp" class="form-control ml-1 w-75" id="numberChannel"> 
+                        </div>
+                        <input type="number"  placeholder="Số kết nối" id="numberConnect" class="form-control w-25 numberConnect" >
+                        <button onclick="calCableMoney()"  class="btn btn-success mt-5">Tính tiền cáp</button>
+                        <div class="alert alert-secondary   w-75 mt-4"  > ==> <span id="displayMoneyCable"></span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="./js/index.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

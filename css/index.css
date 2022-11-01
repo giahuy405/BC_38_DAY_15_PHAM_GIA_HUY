@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body,
+html {
+    background: #77A1D3;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #E684AE, #79CBCA, #77A1D3);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #E684AE, #79CBCA, #77A1D3);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    
+
+}
+
+::-webkit-scrollbar {   
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #30E8BF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #FF8235, #30E8BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-right: 5px;
+   
+}
+
+ 
+
+
+
+
+.myBtn {
+    outline: none;
+    border: none;
+    margin-bottom: 5px;
+    transition: .2s;
+    position: relative;
+}
+
+.myBtn:focus {
+    outline: none;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: black;
+}
+
+.col-2 {
+    background: #C9FFBF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFAFBD, #C9FFBF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-top: 100px;
+    position: relative;
+    z-index: 4;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 6px 0 0 6px;
+}
+
+.col-10 {
+    background-color: white;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 0 6px 6px 0;
+    padding: 0 40px;
+}
+
+.box-hint {
+    padding: 20px;
+    background-color: white;
+    border-left: 8px solid #85e5e4;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+
+}
+
+.triangle {
+    position: relative;
+    z-index: 5;
+    top: -10px;
+    left: -206px;
+    display: inline-block;
+}
+
+.triangle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 10px solid black;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    transition: .5s;
+    z-index: 6;
+}
+
+.tab-content .collapsed .triangle::before {
+    transform: rotate(180deg);
+}
+.numberConnect{
+    display: none;
+}
