@@ -87,13 +87,11 @@ function calElec() {
     var displayElec = document.getElementById('displayElec');
 
     var money = 0;
-    // numberOfKw =20 Kwh -> 500 đồng/Kwh
+
     if (numberOfKw <= 50) {
         money = numberOfKw * 500;
     }
-    // numberOfKw= 80Kwh 
-    // -> 50 đồng/Kwh cho 50 Kwh đầu
-    // 30kWh còn lại mỗi Kwh tốn 650 đồng/Kwh  
+
     else if (numberOfKw <= 100) {
         money = 50 * 500 + (numberOfKw - 50) * 650;
     }
@@ -117,6 +115,8 @@ function calElec() {
     }
 
 }
+
+/*
 // bài 3 tính tiền thuế
 function calTax() {
     var taxPayer = document.getElementById('taxPayer').value;
@@ -171,6 +171,42 @@ function calTax() {
     }
     displayTax.innerHTML = 'Họ tên : ' + taxPayer + ' ; Tiền thuế thu nhập cá nhân ' + incomeAfterTax.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });;
 }
+*/
+
+// bài 3 tính thuế 
+function calTax() {
+    var taxPayer = document.getElementById('taxPayer').value;
+    var income = +document.getElementById('income').value;
+    var numberOfDependents = +document.getElementById('numberOfDependents').value;
+    var incomeAfterTax = income - 4e+6 - numberOfDependents * 1600000;
+
+    // kiểm tra hợp lệ 
+    if (income < 10e+6) {
+        alert('Nhập tổng thu nhập năm không hợp lệ');
+        return;
+    }
+    if (numberOfDependents < 0) {
+        alert('Nhập số người phụ thuộc không hợp lệ');
+        return;
+    }
+    if (incomeAfterTax <= 60e+6) {
+        incomeAfterTax = incomeAfterTax * 0.05;
+    } else if (incomeAfterTax <= 120e+6) {
+        incomeAfterTax = 60e+6 * 0.05 + (incomeAfterTax - 60e+6) * 0.1;
+    } else if (incomeAfterTax <= 210e+6) {
+        incomeAfterTax = 60e+6 * 0.05 + 60e+6 * 0.1 + (incomeAfterTax - 120e+6) * 0.15;
+    } else if (incomeAfterTax <= 384e+6) {
+        incomeAfterTax = 60e+6 * 0.05 + 60e+6 * 0.1 + 90e+6 * 0.15 + (incomeAfterTax - 210e+6) * 0.2;
+    } else if (incomeAfterTax <= 624e+6) {
+        incomeAfterTax = 60e+6 * 0.05 + 60e+6 * 0.1 + 90e+6 * 0.15 + 174e+6 * 0.2 + (incomeAfterTax - 384e+6) * 0.25;
+    }
+    else if (incomeAfterTax <= 960e+6) {
+        incomeAfterTax = 60e+6 * 0.05 + 60e+6 * 0.1 + 90e+6 * 0.15 + 174e+6 * 0.2 + 240e+6 * 0.25 + (incomeAfterTax - 624e+6) * 0.3;
+    } else {
+        incomeAfterTax = 60e+6 * 0.05 + 60e+6 * 0.1 + 90e+6 * 0.15 + 174e+6 * 0.2 + 240e+6 * 0.25 + 336e+6 * 0.3 + (incomeAfterTax - 960e+6) * 0.35;
+    }
+    displayTax.innerHTML = 'Họ tên : ' + taxPayer + ' ; Tiền thuế thu nhập cá nhân ' + incomeAfterTax.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });;
+}
 
 
 function functionSelect() {
@@ -196,15 +232,16 @@ function calCableMoney() {
         return;
     }
     if (mySelect === "Doanh nghiệp") {
-        if(numberConnect<=10){
-            moneyCable= 90 + numberChannel*50;
-        }else{
-            moneyCable= 90 + numberChannel*50 + (numberConnect-10)*5;
+        // nếu số kết nối nhỏ hơn bằng 10 
+        if (numberConnect <= 10) {
+            moneyCable = 90 + numberChannel * 50;
+        } else {
+            moneyCable = 90 + numberChannel * 50 + (numberConnect - 10) * 5;
         }
         displayMoneyCable.innerHTML = 'Mã khách hàng : ' + customerCode + '; Tiền cáp : ' + moneyCable.toLocaleString('en-US', { style: 'currency', currency: 'USD', });
     }
     else {
         moneyCable = 25 + numberChannel * 7.5;
         displayMoneyCable.innerHTML = 'Mã khách hàng : ' + customerCode + '; Tiền cáp : ' + moneyCable.toLocaleString('en-US', { style: 'currency', currency: 'USD', });
-    }  
+    }
 }
